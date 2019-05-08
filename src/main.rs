@@ -4,7 +4,7 @@ mod proxy;
 mod abstract_factory;
 
 fn main() {
-//    proxy::test();
-//    builder::test();
+    proxy::test();
+    builder::test();
     abstract_factory::test();
 }
