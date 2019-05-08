@@ -1,37 +1,37 @@
 #[allow(dead_code)]
 pub fn test() {
     let b1 = BurgerBuilder::new()
-        .with_bread(Breads::Italian)
-        .with_cheese(Cheeses::Cheddar)
-        .with_sauces(Sauces::Ketchup)
+        .with_bread(Breads::ITALIAN)
+        .with_cheese(Cheeses::CHEDDAR)
+        .with_sauces(Sauces::KETCHUP)
         .with_salad()
         .with_tomato()
         .build();
     println!("First burger {:#?}", b1);
     let b2 = BurgerBuilder::new()
-        .with_bread(Breads::Normal)
-        .with_cheese(Cheeses::Emmental)
-        .with_sauces(Sauces::Mayonnaise)
+        .with_bread(Breads::NORMAL)
+        .with_cheese(Cheeses::EMMENTAL)
+        .with_sauces(Sauces::MAYONNAISE)
         .build();
     println!("Second burger {:#?}", b2);
 }
 
 #[derive(Debug)]
 enum Breads {
-    Normal,
-    Italian,
+    NORMAL,
+    ITALIAN,
 }
 
 #[derive(Debug)]
 enum Cheeses {
-    Emmental,
-    Cheddar,
+    EMMENTAL,
+    CHEDDAR,
 }
 
 #[derive(Debug)]
 enum Sauces {
-    Ketchup,
-    Mayonnaise,
+    KETCHUP,
+    MAYONNAISE,
 }
 
 // Burger
