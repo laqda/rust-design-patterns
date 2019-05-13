@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 pub fn test() {
-//    let api_factory = v2019::APIFactory2019::new();
-    let api_factory = v2020::APIFactory2020::new();
+    let api_factory = v2019::APIFactory2019::new();
+//    let api_factory = v2020::APIFactory2020::new();
     let api= api_factory.create();
     println!("{:#?}", api.get_all_users());
 }
