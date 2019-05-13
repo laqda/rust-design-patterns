@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 pub fn test() {
-//    let api = v2019::APIFactory::new();
-    let api = v2020::APIFactory::new();
+    let api = v2019::APIFactory::new();
+//    let api = v2020::APIFactory::new();
     println!("{:#?}", api.get_all_users());
 }
 
@@ -30,7 +30,7 @@ mod v2019 {
 
     impl super::API for API {
         fn get_all_users(&self) -> Vec<super::User> {
-            println!("Use 2019 version");
+            println!("Use 2019 version - I use mysql");
             vec![
                 super::User { role: super::UserRoles::ADMIN },
                 super::User { role: super::UserRoles::MANAGER },
@@ -54,7 +54,7 @@ mod v2020 {
 
     impl super::API for API {
         fn get_all_users(&self) -> Vec<super::User> {
-            println!("Use 2020 version");
+            println!("Use 2020 version - I use postgresql");
             vec![
                 super::User { role: super::UserRoles::ADMIN },
                 super::User { role: super::UserRoles::EMPLOYEE },
