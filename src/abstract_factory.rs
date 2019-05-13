@@ -1,6 +1,6 @@
 #[allow(dead_code)]
 pub fn test() {
-    let api= v2019::APIFactory::new();
+    let api: Box<API> = v2019::APIFactory::new();
 //    let api = v2020::APIFactory::new();
     println!("{:#?}", api.get_all_users());
 }
@@ -21,8 +21,8 @@ pub trait API {
     fn get_all_users(&self) -> Vec<User>;
 }
 
-pub trait APIFactory<A: API> {
-    fn new() -> A;
+pub trait APIFactory {
+    fn new() -> Box<API>;
 }
 
 mod v2019 {
@@ -42,9 +42,9 @@ mod v2019 {
     #[allow(dead_code)]
     pub struct APIFactory {}
 
-    impl super::APIFactory<API2019> for APIFactory {
-        fn new() -> API2019 {
-            API2019 {}
+    impl super::APIFactory for APIFactory {
+        fn new() -> Box<super::API> {
+            Box::new(API2019 {})
         }
     }
 }
@@ -65,9 +65,9 @@ mod v2020 {
     #[allow(dead_code)]
     pub struct APIFactory {}
 
-    impl super::APIFactory<API2020> for APIFactory {
-        fn new() -> API2020 {
-            API2020 {}
+    impl super::APIFactory for APIFactory {
+        fn new() -> Box<super::API> {
+            Box::new(API2020 {})
         }
     }
 }
